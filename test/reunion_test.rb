@@ -12,9 +12,21 @@ class ReunionTest < Minitest::Test
     assert_equal "Camp Echo", reunion.location
   end
 
-  def test_reunion_has_activities
+  def test_can_add_activites_to_reunion
     reunion = Reunion.new("Camp Echo")
+    reunion.add_activity("saska")
 
-    assert_instance_of Activity, reunion.activities
+    assert_equal "", reunion.activities
   end
+
+  def test_can_add_activites_to_reunion
+    skip
+    reunion = Reunion.new("Camp Echo")
+    reunion.add_activity("saska")
+
+    assert @activities.all? do |activity|
+      activity.class == Activity
+    end
+  end
+
 end

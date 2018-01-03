@@ -6,7 +6,13 @@ attr_reader :location,
 
   def initialize(location)
     @location = location
-    @activities = Activity.new("hey")
+    @activities = []
+  end
+
+  def add_activity(name)
+    require 'pry'; binding.pry 
+     activity = Activity.new(name)
+     @activities << activity
   end
 
 end
