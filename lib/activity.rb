@@ -26,4 +26,13 @@ class Activity
     calculate_cost / @participants.count
   end
 
+  def calculate_dues
+    dues = @participants.map do |participant|
+      due = participant.paid - split_cost
+      name = participant.name.to_sym
+      [name, due]
+    end
+    Hash[dues]
+  end
+
 end

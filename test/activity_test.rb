@@ -49,4 +49,13 @@ class ActivityTest < Minitest::Test
 
     assert_equal 1.50, activity.split_cost
   end
+
+  def test_calculate_how_much_participant_owes
+    activity = Activity.new("hiking")
+    activity.add_participant(name: "ellen", paid: 1.00)
+    activity.add_participant(name: "trevor", paid: 2.00)
+
+    assert_equal -0.50, activity.calculate_dues[:ellen]
+    assert_equal 0.50, activity.calculate_dues[:trevor]
+  end
 end
