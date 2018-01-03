@@ -32,5 +32,13 @@ class ActivityTest < Minitest::Test
     assert result.all? do |element|
       element.class == Participant
     end
-  end 
+  end
+
+  def test_can_calculate_activity_cost
+    activity = Activity.new("hiking")
+    activity.add_participant(name: "ellen", paid: 1.00)
+    activity.add_participant(name: "trevor", paid: 2.00)
+
+    assert_equal 3.00, activity.calculate_cost
+  end
 end

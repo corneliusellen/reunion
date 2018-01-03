@@ -15,4 +15,10 @@ class Activity
      @participants << participant
   end
 
+  def calculate_cost
+    costs = @participants.map do |participant|
+      participant.paid
+    end
+    costs.reduce(0, :+)
+  end
 end

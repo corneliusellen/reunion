@@ -1,6 +1,11 @@
 class Participant
 
+  attr_reader :name,
+              :paid
+
   def initialize(participant)
-  end 
+    @name = participant[:name]
+    @paid = participant[:paid]
+  end
 
 end
