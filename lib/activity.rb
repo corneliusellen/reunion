@@ -5,10 +5,14 @@ class Activity
   attr_reader :name,
               :participants
 
-  def initialize(activity, participant)
+  def initialize(activity)
     @name = activity
-    @participants = Participant.new(participant)
+    @participants = []
   end
 
+  def add_participant(info)
+     participant = Participant.new(info)
+     @participants << participant
+  end
 
 end
