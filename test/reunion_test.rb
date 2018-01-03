@@ -23,4 +23,13 @@ class ReunionTest < Minitest::Test
     end
   end
 
+  def test_can_calculate_reunion_cost
+    reunion = Reunion.new("Camp Echo")
+    reunion.add_activity("saska")
+    saska = reunion.activities[0]
+    saska.add_participant(name: "ellen", paid: 1.00)
+    saska.add_participant(name: "trevor", paid: 2.00)
+
+    assert_equal 3.00, reunion.calculate_total_cost(saska)
+  end
 end

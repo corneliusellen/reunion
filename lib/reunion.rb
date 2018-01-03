@@ -14,4 +14,11 @@ attr_reader :location,
      @activities << activity
   end
 
+  def calculate_total_cost(word)
+    located = @activities.find do |activity|
+      activity.name == word
+    end
+    located.calculate_cost
+  end
+
 end
