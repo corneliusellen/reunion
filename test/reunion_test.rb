@@ -16,15 +16,9 @@ class ReunionTest < Minitest::Test
     reunion = Reunion.new("Camp Echo")
     reunion.add_activity("saska")
 
-    assert_equal "", reunion.activities
-  end
+    result = reunion.activities
 
-  def test_can_add_activites_to_reunion
-    skip
-    reunion = Reunion.new("Camp Echo")
-    reunion.add_activity("saska")
-
-    assert @activities.all? do |activity|
+    assert result.all? do |activity|
       activity.class == Activity
     end
   end

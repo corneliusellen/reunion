@@ -10,7 +10,6 @@ attr_reader :location,
   end
 
   def add_activity(name)
-    require 'pry'; binding.pry 
      activity = Activity.new(name)
      @activities << activity
   end
