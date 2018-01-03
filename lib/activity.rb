@@ -21,4 +21,9 @@ class Activity
     end
     costs.reduce(0, :+)
   end
+
+  def split_cost
+    calculate_cost / @participants.count
+  end
+
 end
