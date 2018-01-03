@@ -10,4 +10,35 @@ class ActivityTest < Minitest::Test
 
     assert_equal "hiking", activity.name
   end
+
+  def test_activity_can_have_participant
+    activity = Activity.new("hiking")
+    activity.add_participant(name: "ellen", paid: 1.00)
+
+    result = activity.participants
+
+    assert result.all? do |element|
+      element.class == Participant
+    end
+  end
+
+  def test_activity_can_have_multiple_participants
+    activity = Activity.new("hiking")
+    activity.add_participant(name: "ellen", paid: 1.00)
+    activity.add_participant(name: "trevor", paid: 2.00)
+
+    result = activity.participants
+
+    assert result.all? do |element|
+      element.class == Participant
+    end
+  end
+
+  def test_can_calculate_activity_cost
+    activity = Activity.new("hiking")
+    activity.add_participant(name: "ellen", paid: 1.00)
+    activity.add_participant(name: "trevor", paid: 2.00)
+
+    assert_equal 3.00, activity.calculate_cost
+  end
 end
